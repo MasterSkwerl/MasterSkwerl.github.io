@@ -20,6 +20,7 @@
           "value": "Hello Github"
         }
       }
+    ]
   },
   "scopes": [
     "READ",
