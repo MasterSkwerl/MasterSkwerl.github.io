@@ -1,0 +1,28 @@
+{
+  "name": "Bondsmith",
+  "description": "Bondsmith Connector",
+  "key": "com.skwerlwerks.bondsmith",
+  "baseUrl": "https://masterskwerl.github.io",
+  "vendor": {
+    "name": "SkwerlWerks",
+    "url": "https://www.skwerlwerks.com"
+  },
+  "authentication": {
+    "type": "none"
+  },
+  "modules": {
+    "generalPages": [
+      {
+        "url": "/helloworld",
+        "key": "hello-world",
+        "location": "system.top.navigation.bar",
+        "name": {
+          "value": "Hello Github"
+        }
+      }
+  },
+  "scopes": [
+    "READ",
+    "WRITE"
+  ]
+}
