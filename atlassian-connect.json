@@ -13,7 +13,7 @@
   "modules": {
     "generalPages": [
       {
-        "url": "/helloworld",
+        "url": "/helloworld.html",
         "key": "hello-world",
         "location": "system.top.navigation.bar",
         "name": {
