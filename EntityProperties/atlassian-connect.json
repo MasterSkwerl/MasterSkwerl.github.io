@@ -1,0 +1,45 @@
+{
+  "name": "Indexable Entity Properties",
+  "description": "Creates Indexable User Properties",
+  "key": "indexable-properties",
+  "baseUrl": "https://masterskwerl.github.io/EntityProperties/",
+  "vendor": {
+    "name": "Not Applicable",
+    "url": "https://www.notapplicable.com"
+  },
+  "authentication": {
+    "type": "none"
+  },
+  "modules": {
+    "jiraEntityProperties": [
+      {
+            "name": {
+                "value": "Custom Properties"
+            },
+            "key": "attachment-entity-property"        
+            "entityType": "user",
+            "keyConfigurations": [
+            {
+                "propertyKey": "custom",
+                "extractions": [
+                    {
+                        "objectName": "company",
+                        "type": "string",
+                        "alias": "company"
+                    },
+                    {
+                        "objectName": "vip",
+                        "type": "string",
+                        "alias": "vip"
+                    }
+                ]
+            }
+        ]
+      }
+    ]
+  },
+  "scopes": [
+    "READ",
+    "WRITE"
+  ]
+}
