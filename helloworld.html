@@ -7,6 +7,12 @@
     <body>
         <section id="content" class="ac-content">
             <h1>Hello From Github</h1>
+            <script type="text/javascript">
+AP.user.getCurrentUser(function(user) {
+    console.log("The Atlassian Account ID is", user.atlassianAccountId);
+    alert("The Atlassian Account ID is", user.atlassianAccountId);
+});
+            </script>
         </section>
     </body>
 </html>
