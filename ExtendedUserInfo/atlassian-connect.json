@@ -1,0 +1,29 @@
+{
+  "name": "Extended User Info",
+  "description": "Displays Extended Info in Issue View",
+  "key": "com.skwerlwerks.extendeduserinfo",
+  "baseUrl": "https://masterskwerl.github.io/ExtendedUserInfo",
+  "vendor": {
+    "name": "SkwerlWerks",
+    "url": "https://www.skwerlwerks.com"
+  },
+  "authentication": {
+    "type": "none"
+  },
+  "modules": {
+    "webSections": [
+      {
+        "location": "atl.jira.view.issue.right.context",
+        "weight": 50,
+        "name": {
+          "value": "My NEW Web Section"
+        },
+        "key": "my-web-section"
+      }
+    ]
+  },
+  "scopes": [
+    "READ",
+    "WRITE"
+  ]
+}
