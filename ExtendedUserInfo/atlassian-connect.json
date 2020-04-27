@@ -20,6 +20,21 @@
         },
         "key": "my-web-section"
       }
+    ],
+    "webPanels": [
+      {
+        "url": "/web-panel",
+        "location": "atl.jira.view.issue.right.context",
+        "layout": {
+          "width": "10px",
+          "height": "100%"
+        },
+        "weight": 50,
+        "name": {
+          "value": "My NEW Web Panel"
+        },
+        "key": "my-web-panel"
+      }
     ]
   },
   "scopes": [
