@@ -15,6 +15,11 @@ AP.context.getContext(function(response){
   console.log("Context Contents", response);
   console.log("Jira Issue Key", response.issue_key);
 });
+var answer = confirm ("Force an issue refresh?")
+if (answer)
+    AP.jira.refreshIssuePage();
+else
+    alert ("Well, whatever then...")
             </script>
         </section>
     </body>
