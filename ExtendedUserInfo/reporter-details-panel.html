@@ -13,14 +13,14 @@ AP.user.getCurrentUser(function(user) {
 });
 AP.context.getContext(function(response){
   console.log("Context Contents", response);
-  console.log("Jira Issue Key", response.issue_key);
+  console.log("Jira Issue Key", response.issue.key);
 });
 // Get the current user info using a Promise
 
 AP.request('/rest/api/2/myself')
   .then(data => alert(data.body))
   .catch(e => alert(e.err));
-  
+
             </script>
         </section>
     </body>
