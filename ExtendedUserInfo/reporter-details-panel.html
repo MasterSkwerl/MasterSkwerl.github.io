@@ -10,7 +10,10 @@
             <script type="text/javascript">
 AP.user.getCurrentUser(function(user) {
     console.log("The Atlassian Account ID is", user.atlassianAccountId);
-    alert("The Atlassian Account ID is" + user.atlassianAccountId);
+});
+AP.context.getContext(function(response){
+  console.log("Context Contents", response);
+  console.log("Jira Issue Key", response.issue_key);
 });
             </script>
         </section>
