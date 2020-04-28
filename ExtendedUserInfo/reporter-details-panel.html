@@ -9,20 +9,18 @@
             <h1>Hello From Github</h1>
             <script type="text/javascript">
 
-var issueKey;
-
 AP.context.getContext(function(response){
-  console.log("Context Contents", response);
   console.log("Jira Issue Key", response.jira.issue.key);
   issueKey = response.jira.issue.key;
+  GetIssueData(issueKey);
 });
-console.log("Jira Issue Key", issueKey);
 
-// Get the current user info using a Promise
-AP.request(`/rest/api/3/issue/${issueKey}`)
-  .then(data => alert(data.body))
-  .catch(e => alert(e.err));
+function GetIssueData(issueKey){
+    AP.request(`/rest/api/3/issue/${issueKey}`)
+    .then(data => alert(data.body))
+    .catch(e => alert(e.err));
 
+}
 
             </script>
         </section>
