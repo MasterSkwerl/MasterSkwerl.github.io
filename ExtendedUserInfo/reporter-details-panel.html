@@ -19,7 +19,7 @@ function GetIssueData(issueKey){
     AP.request(`/rest/api/3/issue/${issueKey}`)
     .then(data => {
         console.log("Jira Issue Fields", data.body);
-        var issue = data.body.self;
+        var issue = data[0];
         console.log("Jira Fields", issue);
         GetReporterData(issue.fields.reporter.accountId);
     })
