@@ -13,8 +13,8 @@ var issueKey;
 
 AP.context.getContext(function(response){
   console.log("Context Contents", response);
-  console.log("Jira Issue Key", response.issue.key);
-  issueKey = response.issue.key;
+  console.log("Jira Issue Key", response.jira.issue.key);
+  issueKey = response.jira.issue.key;
 });
 console.log("Jira Issue Key", issueKey);
 
