@@ -25,7 +25,7 @@ function GetIssueData(issueKey){
         
         var jsonObject = (new Function("return " + data.body))();
 
-        console.log("Alpha test", jsonObject);
+        console.log("Alpha test", jsonObject.key);
         GetReporterData(issue.fields.reporter.accountId);
     })
     .catch(e => alert(e.err));
