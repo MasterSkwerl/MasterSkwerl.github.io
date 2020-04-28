@@ -23,7 +23,7 @@ function GetIssueData(issueKey){
         var issue = data.body['key'];
         console.log("Jira Fields", issue);
         var alpha = JSON.parse(data.body);
-        console.log("Alpha test", alpha.key);
+        console.log("Alpha test", alpha);
         GetReporterData(issue.fields.reporter.accountId);
     })
     .catch(e => alert(e.err));
