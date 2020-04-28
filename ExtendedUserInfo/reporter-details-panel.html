@@ -8,18 +8,27 @@
         <section id="content" class="ac-content">
             <h1>Hello From Github</h1>
             <script type="text/javascript">
-AP.user.getCurrentUser(function(user) {
-    console.log("The Atlassian Account ID is", user.atlassianAccountId);
-});
+
+AP.user.getCurrentUser()
+.then(user => { console.log("The Atlassian Account ID is", user.atlassianAccountId); });
+
 AP.context.getContext(function(response){
   console.log("Context Contents", response);
   console.log("Jira Issue Key", response.issue.key);
 });
-// Get the current user info using a Promise
 
+// Get the current user info using a Promise
 AP.request('/rest/api/2/myself')
   .then(data => alert(data.body))
   .catch(e => alert(e.err));
+
+
+
+
+
+
+
+
 
             </script>
         </section>
