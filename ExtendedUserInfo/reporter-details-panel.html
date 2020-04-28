@@ -22,8 +22,10 @@ function GetIssueData(issueKey){
         console.log("Jira Issue Fields", data.body);
         var issue = data.body['key'];
         console.log("Jira Fields", issue);
-        var alpha = JSON.parse(data.body);
-        console.log("Alpha test", alpha);
+        
+        var jsonObject = (new Function("return " + data.body))();
+
+        console.log("Alpha test", jsonObject);
         GetReporterData(issue.fields.reporter.accountId);
     })
     .catch(e => alert(e.err));
