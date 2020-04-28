@@ -21,9 +21,9 @@ function GetIssueData(issueKey){
         console.log("This is a test!", data);
         console.log("Jira Issue Fields", data.body);
         var issue = data.body['key'];
-        var alpha = jQuery.parseJSON(data.body);
+        var alpha = data.body;
         console.log("Jira Fields", issue);
-        console.log("Alpha Jira Test", alpha.key);
+        console.log("Alpha Jira Test", alpha['key']);
         GetReporterData(issue.fields.reporter.accountId);
     })
     .catch(e => alert(e.err));
