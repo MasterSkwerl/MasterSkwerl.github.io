@@ -20,7 +20,7 @@ function GetIssueData(issueKey){
     .then(data => {
         console.log("This is a test!", data);
         console.log("Jira Issue Fields", data.body);
-        var issue = data.body[0];
+        var issue = data.body.id;
         console.log("Jira Fields", issue);
         GetReporterData(issue.fields.reporter.accountId);
     })
