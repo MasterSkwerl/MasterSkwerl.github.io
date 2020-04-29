@@ -16,7 +16,7 @@ AP.context.getContext(function(response){
 });
 
 function GetIssueData(issueKey){
-    AP.request(`/rest/api/3/issue/${issueKey}?fields=key`)
+    AP.request(`/rest/api/3/issue/${issueKey}`)
     .then(data => {
         console.log("This is a test!", data);
         console.log("Jira Issue Fields", data.body);
