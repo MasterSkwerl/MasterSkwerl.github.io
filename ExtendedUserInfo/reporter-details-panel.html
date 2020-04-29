@@ -19,7 +19,7 @@ function GetIssueData(issueKey){
     AP.request(`/rest/api/3/issue/${issueKey}`)
     .then(data => {
         console.log("This is a test!", data);
-        var issue = data.body['key'];
+        var issue = data.body;
         console.log("Jira Fields", issue);
         
         var jsonObject = (new Function("return " + data.body))();
