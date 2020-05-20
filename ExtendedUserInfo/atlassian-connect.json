@@ -1,6 +1,7 @@
 {
   "name": "Extended User Info",
   "description": "Displays Extended Info in Issue View",
+  "apiVersion": 2, 
   "key": "com.skwerlwerks.extendeduserinfo",
   "baseUrl": "https://masterskwerl.github.io/ExtendedUserInfo",
   "vendor": {
@@ -39,7 +40,7 @@
     ],
     "webPanels": [
       {
-        "url": "/reporter-details-panel",
+        "url": "/reporter-details-panel.html",
         "location": "atl.jira.view.issue.right.context",
         "layout": {
           "width": "10px",
@@ -51,6 +52,24 @@
         },
         "key": "reporter-details-panel"
       }
+    ],
+    "webSections": [
+      {
+          "key": "example-menu-section",
+          "location": "system.user.hover.links",
+          "name": {
+              "value": "Example app name"
+          }
+      }
+    ],
+    "webItems": [
+        {
+            "key": "example-section-link",
+            "location": "example-menu-section",
+            "name": {
+                "value": "Example app link"
+            }
+        }
     ]
   },
   "scopes": [
