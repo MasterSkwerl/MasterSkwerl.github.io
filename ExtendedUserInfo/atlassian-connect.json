@@ -68,7 +68,8 @@
             "location": "example-menu-section",
             "name": {
                 "value": "Example app link"
-            }
+            },
+            "url": "/reporter-details-panel.html"
         }
     ]
   },
