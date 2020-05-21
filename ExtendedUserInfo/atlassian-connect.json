@@ -1,7 +1,7 @@
 {
   "name": "Extended User Info",
   "description": "Displays Extended Info in Issue View",
-  "apiVersion": 2, 
+  "version": 2, 
   "key": "com.skwerlwerks.extendeduserinfo",
   "baseUrl": "https://masterskwerl.github.io/ExtendedUserInfo",
   "vendor": {
@@ -40,21 +40,21 @@
     ],
     "webSections": [
       {
-          "key": "example-menu-section",
+          "key": "extended-details-section",
           "location": "system.user.hover.links",
           "name": {
-              "value": "Example app name"
+              "value": "User Details"
           }
       }
     ],
     "webItems": [
         {
-            "key": "example-section-link",
-            "location": "example-menu-section",
+            "key": "extended-details-link",
+            "location": "extended-details-section",
             "name": {
-                "value": "Example app link"
+                "value": "Extended User Details"
             },
-            "url": "/reporter-details-panel.html"
+            "url": "/extended-details.html"
         }
     ],
     "serviceDeskPortalProfilePanels": [
