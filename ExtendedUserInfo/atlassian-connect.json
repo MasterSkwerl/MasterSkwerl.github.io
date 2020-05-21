@@ -38,24 +38,11 @@
         ]
       }
     ],
-    "webSections": [
+    "serviceDeskPortalProfilePanels": [
       {
-          "key": "extended-details-section",
-          "location": "system.user.hover.links",
-          "name": {
-              "value": "User Details"
-          }
+          "key": "sd-portal-profile-content",
+          "url": "/sd-portal-profile-content.html"
       }
-    ],
-    "webItems": [
-        {
-            "key": "extended-details-link",
-            "location": "extended-details-section",
-            "name": {
-                "value": "Extended User Details"
-            },
-            "url": "/extended-details.html"
-        }
     ]
   },
   "scopes": [
