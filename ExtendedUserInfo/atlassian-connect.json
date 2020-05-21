@@ -56,13 +56,7 @@
             },
             "url": "/extended-details.html"
         }
-    ],
-    "serviceDeskPortalProfilePanels": [
-      {
-          "key": "sd-portal-profile-content",
-          "url": "/reporter-details-panel.html"
-      }
-  ]
+    ]
   },
   "scopes": [
     "READ",
