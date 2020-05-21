@@ -43,7 +43,7 @@
         "icon": {
           "width": 0,
           "height": 0,
-          "url": "my_icon.png"
+          "url": "/my_icon.png"
         },
         "content": {
           "type": "label",
