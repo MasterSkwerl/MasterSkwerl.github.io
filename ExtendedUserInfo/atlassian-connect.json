@@ -43,12 +43,12 @@
         "icon": {
           "width": 0,
           "height": 0,
-          "url": "my_icon.svg"
+          "url": "my_icon.png"
         },
         "content": {
           "type": "label",
           "label": {
-            "value": "Additional Details:"
+            "value": "Additional Information"
           }
         },
         "target": {
@@ -56,7 +56,7 @@
           "url": "/reporter-details-panel.html"
         },
         "name": {
-          "value": "Additional Details"
+          "value": "Extended Details"
         },
         "key": "additional-details-glance"
       }
