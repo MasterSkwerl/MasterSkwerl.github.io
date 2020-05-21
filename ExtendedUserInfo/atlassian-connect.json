@@ -38,21 +38,6 @@
         ]
       }
     ],
-    "webPanels": [
-      {
-        "url": "/reporter-details-panel.html",
-        "location": "atl.jira.view.issue.right.context",
-        "layout": {
-          "width": "10px",
-          "height": "100%"
-        },
-        "weight": 50,
-        "name": {
-          "value": "Reporter Details"
-        },
-        "key": "reporter-details-panel"
-      }
-    ],
     "webSections": [
       {
           "key": "example-menu-section",
@@ -71,7 +56,13 @@
             },
             "url": "/reporter-details-panel.html"
         }
-    ]
+    ],
+    "serviceDeskPortalProfilePanels": [
+      {
+          "key": "sd-portal-profile-content",
+          "url": "/reporter-details-panel.html"
+      }
+  ]
   },
   "scopes": [
     "READ",
