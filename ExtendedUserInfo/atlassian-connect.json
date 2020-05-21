@@ -38,10 +38,27 @@
         ]
       }
     ],
-    "serviceDeskPortalProfilePanels": [
+    "jiraIssueGlances": [
       {
-          "key": "sd-portal-profile-content",
-          "url": "/sd-portal-profile-content.html"
+        "icon": {
+          "width": 0,
+          "height": 0,
+          "url": "my_icon.svg"
+        },
+        "content": {
+          "type": "label",
+          "label": {
+            "value": "Additional Details:"
+          }
+        },
+        "target": {
+          "type": "web_panel",
+          "url": "/reporter-details-panel.html"
+        },
+        "name": {
+          "value": "Additional Details"
+        },
+        "key": "additional-details-glance"
       }
     ]
   },
