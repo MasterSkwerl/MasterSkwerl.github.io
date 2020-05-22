@@ -43,7 +43,7 @@
         "icon": {
           "width": 24,
           "height": 24,
-          "url": "my_icon.png"
+          "url": "/user_icon_dark.svg"
         },
         "content": {
           "type": "label",
