@@ -51,38 +51,31 @@ function GetExtendedUserInfo(accountId){
     .catch(e => alert(e.err));
 }
 
-function CreateTableFromJSON() {
+function CreateTableFromJSON(){
+    console.log("Beginning Table Creation");
 
-        console.log("Beginning Table Creation");
+    var jsonObject = JSON.parse('{"key":"custom","value":{"company":"unlocked","vip":"true"}}');
 
-        var jsonObject = {
-            "key":"custom",
-            "value":{
-                "company":"unlocked",
-                "vip":"true"
-                }
-            };
-
-        console.log("Json Object", jsonObject);
-        console.log("Json Object Values", jsonObject.value);
-        
-        var table = document.createElement("table");
-
-        for (var key in jsonObject.value) {
-            
-            tr = table.insertRow(-1);
-
-            var headerCell = tr.insertCell(-1);
-            headerCell.innerHTML = key;
-
-            var valueCell = tr.insertCell(-1);
-            valueCell.innerHTML = jsonObject.value[key];
-        }
+    console.log("Json Object", jsonObject);
+    console.log("Json Object Values", jsonObject.value);
     
-        var divContainer = document.getElementsByName("tableData");
-        divContainer.innerHTML = "";
-        divContainer.appendChild(table);
+    var table = document.createElement("table");
+
+    for (var key in jsonObject.value) {
+        
+        tr = table.insertRow(-1);
+
+        var headerCell = tr.insertCell(-1);
+        headerCell.innerHTML = key;
+
+        var valueCell = tr.insertCell(-1);
+        valueCell.innerHTML = jsonObject.value[key];
     }
+
+    var divContainer = document.getElementsByName("tableData");
+    divContainer.innerHTML = "";
+    divContainer.appendChild(table);
+}
 
 
 
