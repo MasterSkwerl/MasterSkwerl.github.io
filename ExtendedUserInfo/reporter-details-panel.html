@@ -22,7 +22,7 @@ AP.events.on('ISSUE_GLANCE_OPENED', function() {
   })
   .catch(e => {
         console.error(e.err)
-        SetErrorMessage("Top-Level Error");
+        SetErrorMessage("General Exception<br>Please Contact JIRA Administrator");
   });
 
 function GetIssueData(issueKey){
@@ -34,7 +34,7 @@ function GetIssueData(issueKey){
     })
     .catch(e => {
         console.error(e.err)
-        SetErrorMessage("Error Retreiving Issue Data <br> Please Contact JIRA Administrator");
+        SetErrorMessage("Error Retreiving Issue Data <br>Please Contact JIRA Administrator");
     });
 }
 
@@ -47,7 +47,7 @@ function GetExtendedUserInfo(accountId){
     })
     .catch(e => {
         console.error(e.err)
-        SetErrorMessage("Error Retreiving Extended Reporter Data <br> Please Contact JIRA Administrator");
+        SetErrorMessage("No Extended Data Found<br>If you believe this is an error, please contact your JIRA Administrator");
     });
 }
 
