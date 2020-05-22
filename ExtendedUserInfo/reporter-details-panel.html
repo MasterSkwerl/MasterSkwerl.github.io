@@ -7,9 +7,11 @@
     <body>
         <section id="content" class="ac-content">
 
+            <div name="tableData"></div>
 
 
-            <script type="text/javascript">
+
+<script type="text/javascript">
 
 AP.events.on('ISSUE_GLANCE_OPENED', function() {
     AP.context.getContext(function(response){
@@ -18,7 +20,6 @@ AP.events.on('ISSUE_GLANCE_OPENED', function() {
         GetIssueData(issueKey);
     });
   });
-
 
 function GetIssueData(issueKey){
     AP.request(`/rest/api/3/issue/${issueKey}`)
@@ -40,18 +41,47 @@ function GetReporterData(accountId){
     .catch(e => alert(e.err));
 }
 
-
 function GetExtendedUserInfo(accountId){
     var propertyKey = "custom";
     AP.request(`/rest/api/3/user/properties/${propertyKey}?accountId=${accountId}`)
     .then(data => {
         console.log("Extended User Data", data.body);
-        alert(data.body);
+        CreateTableFromJSON(data.body);
     })
     .catch(e => alert(e.err));
 }
 
-            </script>
+function CreateTableFromJSON() {
+        var jsonObject = {
+            "key":"custom",
+            "value":{
+                "company":"unlocked",
+                "vip":"true"
+                }
+            }
+        
+        var table = document.createElement("table");
+
+        for (var key in jsonObject.value) {
+            
+            tr = table.insertRow(-1);
+
+            var headerCell = tr.insertCell(-1);
+            headerCell.innerHTML = key;
+
+            var valueCell = tr.insertCell(-1);
+            valueCell.innerHTML = jsonObject.value[key];
+        }
+    
+        var divContainer = document.getElementsByName("tableData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+    }
+
+
+
+</script>
+
         </section>
     </body>
 </html>
