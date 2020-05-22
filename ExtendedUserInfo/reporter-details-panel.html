@@ -41,15 +41,14 @@ function GetReporterData(accountId){
 
 
 function GetExtendedUserInfo(accountId){
-    var propertyKey = "";
-    AP.request(`/rest/api/3/user/properties/${propertyKey}`)
+    var propertyKey = "custom";
+    AP.request(`/rest/api/3/user/properties/${propertyKey}?accountId=${accountId}`)
     .then(data => {
-        console.log("Jira Reporter Data", data.body);
+        console.log("Extended User Data", data.body);
         alert(data.body);
     })
     .catch(e => alert(e.err));
 }
-
 
             </script>
         </section>
