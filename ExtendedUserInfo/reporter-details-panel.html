@@ -19,7 +19,7 @@ AP.events.on('ISSUE_GLANCE_OPENED', function() {
         issueKey = response.jira.issue.key;
         GetIssueData(issueKey);
     });
-  });
+  }).catch(e => console.error(e.err));
 
 function GetIssueData(issueKey){
     AP.request(`/rest/api/3/issue/${issueKey}`)
@@ -28,7 +28,7 @@ function GetIssueData(issueKey){
         var jsonObject = JSON.parse(data.body);
         GetExtendedUserInfo(jsonObject.fields.reporter.accountId);
     })
-    .catch(e => alert(e.err));
+    .catch(e => console.error(e.err));
 }
 
 function GetExtendedUserInfo(accountId){
@@ -38,7 +38,7 @@ function GetExtendedUserInfo(accountId){
         var extendedData = JSON.parse(data.body);
         CreateTableFromJSON(extendedData);
     })
-    .catch(e => alert(e.err));
+    .catch(e => console.error(e.err));
 }
 
 function CreateTableFromJSON(jsonObject){
@@ -51,7 +51,7 @@ function CreateTableFromJSON(jsonObject){
         var valueCell = tr.insertCell(-1);
         valueCell.innerHTML = value;
     }
-    
+
     var divContainer = document.getElementById("tableData");
     divContainer.innerHTML = "";
     divContainer.appendChild(table);
