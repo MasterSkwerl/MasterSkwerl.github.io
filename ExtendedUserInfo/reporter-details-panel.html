@@ -7,7 +7,7 @@
     <body>
         <section id="content" class="ac-content">
 
-            <div id="tableData">Starting Content</div>
+            <div id="tableData">Retrieving Content...</div>
 
 
 
@@ -19,7 +19,11 @@ AP.events.on('ISSUE_GLANCE_OPENED', function() {
         issueKey = response.jira.issue.key;
         GetIssueData(issueKey);
     });
-  }).catch(e => console.error(e.err));
+  })
+  .catch(e => {
+        console.error(e.err)
+        SetErrorMessage("Top-Level Error");
+  });
 
 function GetIssueData(issueKey){
     AP.request(`/rest/api/3/issue/${issueKey}`)
@@ -28,7 +32,10 @@ function GetIssueData(issueKey){
         var jsonObject = JSON.parse(data.body);
         GetExtendedUserInfo(jsonObject.fields.reporter.accountId);
     })
-    .catch(e => console.error(e.err));
+    .catch(e => {
+        console.error(e.err)
+        SetErrorMessage("Error Retreiving Issue Data <br> Please Contact JIRA Administrator");
+    });
 }
 
 function GetExtendedUserInfo(accountId){
@@ -38,7 +45,10 @@ function GetExtendedUserInfo(accountId){
         var extendedData = JSON.parse(data.body);
         CreateTableFromJSON(extendedData);
     })
-    .catch(e => console.error(e.err));
+    .catch(e => {
+        console.error(e.err)
+        SetErrorMessage("Error Retreiving Extended Reporter Data <br> Please Contact JIRA Administrator");
+    });
 }
 
 function CreateTableFromJSON(jsonObject){
@@ -55,6 +65,11 @@ function CreateTableFromJSON(jsonObject){
     var divContainer = document.getElementById("tableData");
     divContainer.innerHTML = "";
     divContainer.appendChild(table);
+}
+
+function SetErrorMessage(message){
+    var divContainer = document.getElementById("tableData");
+    divContainer.innerHTML = message;
 }
 
 
