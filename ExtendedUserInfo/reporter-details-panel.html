@@ -79,6 +79,7 @@ function CreateTableFromJSON(){
     console.log("Attempting to Add Table to DIV");
 
     var divContainer = document.getElementById("tableData");
+    divContainer.innerHTML = "";
     divContainer.appendChild(table);
 }
 
