@@ -35,6 +35,7 @@ function GetReporterData(accountId){
     AP.request(`/rest/api/3/user?accountId=${accountId}`)
     .then(data => {
         console.log("Jira Reporter Data", data.body);
+        GetExtendedUserInfo(accountId);
     })
     .catch(e => alert(e.err));
 }
