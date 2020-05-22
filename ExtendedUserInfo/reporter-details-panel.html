@@ -46,7 +46,7 @@ function GetExtendedUserInfo(accountId){
     AP.request(`/rest/api/3/user/properties/${propertyKey}?accountId=${accountId}`)
     .then(data => {
         console.log("Extended User Data", data.body);
-        CreateTableFromJSON(data.body);
+        CreateTableFromJSON();
     })
     .catch(e => alert(e.err));
 }
@@ -59,6 +59,9 @@ function CreateTableFromJSON() {
                 "vip":"true"
                 }
             }
+
+        console.log("Json Object", jsonObject);
+        console.log("Json Object Values", jsonObject.value);
         
         var table = document.createElement("table");
 
