@@ -41,9 +41,9 @@
     "jiraIssueGlances": [
       {
         "icon": {
-          "width": 24,
-          "height": 24,
-          "url": "user_icon_dark.svg"
+          "width": 0,
+          "height": 0,
+          "url": "/ExtendedUserInfo/user_icon_dark.svg"
         },
         "content": {
           "type": "label",
