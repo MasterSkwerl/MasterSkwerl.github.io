@@ -27,19 +27,19 @@ function GetIssueData(issueKey){
         var issue = data.body;
         console.log("Jira Fields", issue);
         var jsonObject = (new Function("return " + data.body))();
-        GetReporterData(jsonObject.fields.reporter.accountId);
+        GetExtendedUserInfo(jsonObject.fields.reporter.accountId);
     })
     .catch(e => alert(e.err));
 }
 
-function GetReporterData(accountId){
-    AP.request(`/rest/api/3/user?accountId=${accountId}`)
-    .then(data => {
-        console.log("Jira Reporter Data", data.body);
-        GetExtendedUserInfo(accountId);
-    })
-    .catch(e => alert(e.err));
-}
+// function GetReporterData(accountId){
+//     AP.request(`/rest/api/3/user?accountId=${accountId}`)
+//     .then(data => {
+//         console.log("Jira Reporter Data", data.body);
+//         GetExtendedUserInfo(accountId);
+//     })
+//     .catch(e => alert(e.err));
+// }
 
 function GetExtendedUserInfo(accountId){
     var propertyKey = "custom";
