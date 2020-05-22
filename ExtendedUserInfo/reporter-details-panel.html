@@ -7,7 +7,7 @@
     <body>
         <section id="content" class="ac-content">
 
-            <div id="tableData"></div>
+            <div id="tableData">Starting Content</div>
 
 
 
@@ -79,6 +79,10 @@ function CreateTableFromJSON(){
     console.log("Attempting to Add Table to DIV");
 
     var divContainer = document.getElementsById("tableData");
+
+    console.log("Original Content: ", divContainer.innerHTML);
+
+
     divContainer.innerHTML = `
     <table class="aui">
     <thead>
