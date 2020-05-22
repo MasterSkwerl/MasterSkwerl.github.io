@@ -16,11 +16,8 @@
 AP.events.on('ISSUE_GLANCE_OPENED', function() {
     AP.context.getContext(function(response){
         issueKey = response.jira.issue.key;
-        console.log("IssueKey", issueKey);
         var issueData = GetIssueData(issueKey);
-        console.log("IssueData", issueData);
         var reporterData = GetExtendedUserInfo(issueData.fields.reporter.accountId, "custom");
-        console.log("ReporterData", reporterData);
         UpdateTable(reporterData);
     });
   });
