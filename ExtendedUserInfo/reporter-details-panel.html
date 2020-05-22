@@ -59,87 +59,27 @@ function CreateTableFromJSON(){
     console.log("Json Object", jsonObject);
     console.log("Json Object Values", jsonObject.value);
     
-    // var table = document.createElement("table");
+    var table = document.createElement("table");
 
-    // console.log("Beginning to Parse Keys")
+    console.log("Beginning to Parse Keys")
 
-    // for (let [key, value] of Object.entries(jsonObject.value)) {
+    for (let [key, value] of Object.entries(jsonObject.value)) {
         
-    //     console.log(`${key}: ${value}`);
+        console.log(`${key}: ${value}`);
 
-    //     tr = table.insertRow(-1);
+        tr = table.insertRow(-1);
 
-    //     var headerCell = tr.insertCell(-1);
-    //     headerCell.innerHTML = key;
+        var headerCell = tr.insertCell(-1);
+        headerCell.innerHTML = key;
 
-    //     var valueCell = tr.insertCell(-1);
-    //     valueCell.innerHTML = value;
-    // }
+        var valueCell = tr.insertCell(-1);
+        valueCell.innerHTML = value;
+    }
 
     console.log("Attempting to Add Table to DIV");
 
     var divContainer = document.getElementById("tableData");
-
-    console.log("Original Content: ", divContainer.innerHTML);
-
-
-    divContainer.innerHTML = `
-    <table class="aui">
-    <thead>
-        <tr>
-            <th id="name">Name</th>
-            <th id="type">Type</th>
-            <th id="order">Order</th>
-            <th id="action">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td headers="name">Default</td>
-            <td headers="type">Internal Directory</td>
-            <td class="order" headers="order">
-                <ul class="menu">
-                    <li>
-                        <a class="down" href="#">Down</a>
-                    </li>
-                </ul>
-            </td>
-            <td class="action" headers="action">
-                <ul class="menu">
-                    <li>
-                        <a href="#">An Action</a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td headers="name">Corporate LDAP</td>
-            <td headers="type">Microsoft Active Directory</td>
-            <td class="order" headers="order">
-                <ul class="menu">
-                    <li>
-                        <a class="up" href="#">Up</a>
-                    </li>
-                    <li>
-                        <a class="down" href="#">Down</a>
-                    </li>
-                </ul>
-            </td>
-            <td class="action" headers="action">
-                <ul class="menu">
-                    <li>
-                        <a href="#">An Action</a>
-                    </li>
-                    <li>
-                        <a href="#">Another Action</a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    </tbody>
-</table>
-    `;
-    //divContainer.appendChild(table);
+    divContainer.appendChild(table);
 }
 
 
