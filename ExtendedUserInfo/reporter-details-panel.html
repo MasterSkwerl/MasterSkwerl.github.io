@@ -61,16 +61,22 @@ function CreateTableFromJSON(){
     
     var table = document.createElement("table");
 
-    for (var key in jsonObject.value) {
+    console.log("Beginning to Parse Keys")
+
+    for (let [key, value] of Object.entries(jsonObject.value)) {
         
+        console.log(`${key}: ${value}`);
+
         tr = table.insertRow(-1);
 
         var headerCell = tr.insertCell(-1);
         headerCell.innerHTML = key;
 
         var valueCell = tr.insertCell(-1);
-        valueCell.innerHTML = jsonObject.value[key];
+        valueCell.innerHTML = value;
     }
+
+    console.log("Attempting to Add Table to DIV");
 
     var divContainer = document.getElementsByName("tableData");
     divContainer.innerHTML = "";
