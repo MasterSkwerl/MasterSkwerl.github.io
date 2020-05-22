@@ -26,16 +26,12 @@ AP.events.on('ISSUE_GLANCE_OPENED', function() {
   });
 
 function GetIssueData(issueKey){
-    var jsonObject;
     AP.request(`/rest/api/3/issue/${issueKey}`)
     .then(data => {
-        console.log("Data", data)
-        jsonObject = JSON.parse(data.body);
-        console.log("Parsed Object", jsonObject)
+        var jsonObject = JSON.parse(data.body);
+        return jsonObject;
     })
     .catch(e => console.error(e.err));
-    console.log("Parsed Object", jsonObject)
-    return jsonObject;
 }
 
 function GetExtendedUserInfo(accountId, propertyKey){
