@@ -15,48 +15,78 @@
 
 AP.events.on('ISSUE_GLANCE_OPENED', function() {
     AP.context.getContext(function(response){
+        console.log("Jira Issue Key", response.jira.issue.key);
         issueKey = response.jira.issue.key;
-        var issueData = GetIssueData(issueKey);
-        var reporterData = GetExtendedUserInfo(issueData.fields.reporter.accountId, "custom");
-        UpdateTable(reporterData);
+        GetIssueData(issueKey);
     });
   });
 
 function GetIssueData(issueKey){
     AP.request(`/rest/api/3/issue/${issueKey}`)
     .then(data => {
-        var jsonObject = JSON.parse(data.body);
-        return jsonObject;
-    })
-    .catch(e => console.error(e.err));
-}
-
-function GetExtendedUserInfo(accountId, propertyKey){
-    AP.request(`/rest/api/3/user/properties/${propertyKey}?accountId=${accountId}`)
-    .then(data => {
-        console.log("Extended User Data", data.body);
-        return JSON.parse(data.body);
+        var issue = data.body;
+        console.log("Jira Fields", issue);
+        var jsonObject = (new Function("return " + data.body))();
+        GetReporterData(jsonObject.fields.reporter.accountId);
     })
     .catch(e => alert(e.err));
 }
 
-function UpdateTable(jsonObject){
+function GetReporterData(accountId){
+    AP.request(`/rest/api/3/user?accountId=${accountId}`)
+    .then(data => {
+        console.log("Jira Reporter Data", data.body);
+        GetExtendedUserInfo(accountId);
+    })
+    .catch(e => alert(e.err));
+}
+
+function GetExtendedUserInfo(accountId){
+    var propertyKey = "custom";
+    AP.request(`/rest/api/3/user/properties/${propertyKey}?accountId=${accountId}`)
+    .then(data => {
+        console.log("Extended User Data", data.body);
+        CreateTableFromJSON();
+    })
+    .catch(e => alert(e.err));
+}
+
+function CreateTableFromJSON(){
+    console.log("Beginning Table Creation");
+
+    var jsonObject = JSON.parse('{"key":"custom","value":{"company":"unlocked","vip":"true"}}');
+
+    console.log("Json Object", jsonObject);
+    console.log("Json Object Values", jsonObject.value);
+    
     var table = document.createElement("table");
 
+    console.log("Beginning to Parse Keys")
+
     for (let [key, value] of Object.entries(jsonObject.value)) {
+        
+        console.log(`${key}: ${value}`);
+
         tr = table.insertRow(-1);
+
         var headerCell = tr.insertCell(-1);
         headerCell.innerHTML = key;
+
         var valueCell = tr.insertCell(-1);
         valueCell.innerHTML = value;
     }
+
+    console.log("Attempting to Add Table to DIV");
 
     var divContainer = document.getElementById("tableData");
     divContainer.innerHTML = "";
     divContainer.appendChild(table);
 }
 
+
+
 </script>
+
         </section>
     </body>
 </html>
