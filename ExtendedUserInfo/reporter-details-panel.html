@@ -25,8 +25,11 @@ function GetIssueData(issueKey){
     AP.request(`/rest/api/3/issue/${issueKey}`)
     .then(data => {
         var issue = data.body;
-        console.log("Jira Fields", issue);
         var jsonObject = (new Function("return " + data.body))();
+        console.log("Body", data.body);
+        console.log("JsonOrig", jsonObject);
+        var parsed = JSON.parse(data.body);
+        console.log("parsed", parsed);
         GetExtendedUserInfo(jsonObject.fields.reporter.accountId);
     })
     .catch(e => alert(e.err));
